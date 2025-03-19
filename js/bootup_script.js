@@ -48,7 +48,7 @@ function displayResponse(response) {
 }
 
 function handleRedirect() {
-    window.location.href = 'construction.html';
+    window.location.href = 'portfolio.html';
 }
 
 document.addEventListener('keydown', function(event) {

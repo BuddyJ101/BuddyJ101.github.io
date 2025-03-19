@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "d:\\Projects\\BuddyJ101.github.io\\index.html"
+            "file": "p:\\Junaids Learning Projects\\web_test\\index.html"
         }
     ]
 }
