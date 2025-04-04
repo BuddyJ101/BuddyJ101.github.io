@@ -80,16 +80,39 @@ var projectTagsContainer;
 var carousel;
 
 function initializeProjectSection() {
-
     projectTextElement = document.getElementById("project-details");
     projectTagsContainer = document.getElementById("project-tags");
     carousel = document.getElementById("carouselExampleDark");
 
+    // Enable swipe functionality
+    let startX = 0;
+    let endX = 0;
+
+    carousel.addEventListener("touchstart", function (e) {
+        startX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener("touchend", function (e) {
+        endX = e.changedTouches[0].screenX;
+
+        if (startX > endX) {
+            // Swipe Left (next slide)
+            $('#carouselExampleDark').carousel('next');
+        }
+        if (startX < endX) {
+            // Swipe Right (previous slide)
+            $('#carouselExampleDark').carousel('prev');
+        }
+    });
+
+    var bootstrapCarousel = new bootstrap.Carousel(carousel);
+    bootstrapCarousel.cycle();
+
     carousel.addEventListener("slid.bs.carousel", function (event) {
         var index = event.to;
-
         updateDetails(index);
     });
+
     var index = 0;
     updateDetails(index);
 }
